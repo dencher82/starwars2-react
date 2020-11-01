@@ -11,9 +11,9 @@ class Contact extends React.Component {
     }
 
     componentDidMount() {
-        const planetNames = JSON.parse(localStorage.getItem('planets'));
+        const planetNames = JSON.parse(localStorage.getItem('planet_names'));
         const loadingTime = JSON.parse(localStorage.getItem('loading_time'));
-        if (planetNames && loadingTime < Date.now()) {
+        if (planetNames && loadingTime > Date.now()) {
             this.setState({
                 isLoading: false,
                 planetNames
@@ -32,7 +32,7 @@ class Contact extends React.Component {
                         loadingTime,
                         planetNames
                     });
-                    localStorage.setItem('person_info', JSON.stringify(planetNames));
+                    localStorage.setItem('planet_names', JSON.stringify(planetNames));
                     localStorage.setItem('loading_time', JSON.stringify(loadingTime));
                 })
         }

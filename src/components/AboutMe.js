@@ -21,7 +21,7 @@ class AboutMe extends React.Component {
     componentDidMount() {
         const personInfo = JSON.parse(localStorage.getItem('person_info'));
         const loadingTime = JSON.parse(localStorage.getItem('loading_time'));
-        if (personInfo && loadingTime < Date.now()) {
+        if (personInfo && loadingTime > Date.now()) {
             this.setState({
                 isLoading: false,
                 personInfo
